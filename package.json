@@ -8,6 +8,7 @@
     "start": "pnpm run dev",
     "dev": "dumi dev",
     "build": "pnpm -r --filter=./packages/* run build",
+    "build:doc": "dumi build",
     "init": "pnpm install",
     "test": "jest",
     "pub": "pnpm run build && pnpm -r --filter=./packages/hooks publish",
