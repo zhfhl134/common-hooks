@@ -1,5 +1,5 @@
 {
-  "name": "zhfhl-encode-hooks",
+  "name": "zhfhl-common-hooks",
   "version": "0.0.2",
   "description": "React 业务 Hooks",
   "keywords": [
@@ -10,14 +10,14 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
-  "unpkg": "dist/encode-hooks.js",
+  "unpkg": "dist/common-hooks.js",
   "sideEffects": false,
   "authors": "zhfhl",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "https://github.com/encode-studio-fe/encode-hooks",
-  "homepage": "https://github.com/encode-studio-fe/encode-hooks",
+  "repository": "https://github.com/encode-studio-fe/common-hooks",
+  "homepage": "https://github.com/encode-studio-fe/common-hooks",
   "scripts": {
     "build": "gulp && webpack-cli"
   },

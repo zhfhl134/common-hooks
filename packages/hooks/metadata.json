@@ -1,6 +1,18 @@
 {
   "functions": [
     {
+      "name": "useBoolean",
+      "description": "优雅的管理 boolean 状态的 Hook。"
+    },
+    {
+      "name": "useLatest",
+      "description": "用于获取最新的 hooks 避免闭包"
+    },
+    {
+      "name": "useTitle",
+      "description": "用于切换页面标题的 hooks"
+    },
+    {
       "name": "useToggle",
       "description": "进行值切换的基础 Hook。"
     }

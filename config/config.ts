@@ -6,7 +6,7 @@ export default {
     type: 'none',
     exclude: [],
   },
-  publicPath: '/encode-hooks/',
+  publicPath: '/common-hooks/',
   history: { type: 'hash' },
   extraBabelPlugins: [
     [
@@ -18,16 +18,16 @@ export default {
       'fusion',
     ],
   ],
-  title: 'encode hooks',
+  title: 'common-hooks',
   mode: 'site',
-  //   favicon: '/encode-hooks/avatar.png',
-  //   logo: '/encode-hooks/avatar.png',
+  favicon: '/common-hooks/R.jpg',
+  logo: '/common-hooks/R.jpg',
   dynamicImport: {},
   manifest: {},
   hash: true,
   alias: {
-    encodeHooks: process.cwd() + '/packages/hooks/src/index.ts',
-    ['encode-hooks']: process.cwd() + '/packages/hooks/src/index.ts',
+    commonHooks: process.cwd() + '/packages/hooks/src/index.ts',
+    ['common-hooks']: process.cwd() + '/packages/hooks/src/index.ts',
   },
   resolve: {
     includes: ['docs', 'packages/hooks/src'],
@@ -42,7 +42,7 @@ export default {
   navs: [
     { title: '指南', path: '/guide' },
     { title: 'Hooks', path: '/hooks' },
-    { title: 'GitHub', path: 'https://github.com/encode-studio-fe/encode-hooks' },
+    { title: 'GitHub', path: 'https://github.com/zhfhl134/commin-hooks' },
   ],
   menus: {
     '/': [
@@ -53,7 +53,7 @@ export default {
     ],
     '/guide': [
       {
-        title: '介绍',
+        title: '简介',
         path: '/guide',
       },
     ],

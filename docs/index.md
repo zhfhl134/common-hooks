@@ -1,14 +1,14 @@
 ---
 title: 首页
 hero:
-  image: /encode-hooks/short-logo.png
-  desc: 印客学院 React 业务 Hooks
+  image: /common-hooks/logo.jpg
+  desc: 常见 React 业务 Hooks
   actions:
     - text: 指南
       link: /guide
     - text: Hooks 列表
       link: /hooks
-footer: Copyright (c) © 2023 by encode studio, All Rights Reserved
+footer: Copyright (c) © 2023 by zhfhl134 blog, All Rights Reserved
 ---
 
 ## ✨ 特性
@@ -20,9 +20,9 @@ footer: Copyright (c) © 2023 by encode studio, All Rights Reserved
 ## 📦 安装
 
 ```typescript
-$ pnpm install --save encode-hooks
+$ pnpm install --save common-hooks
 # or
-$ yarn add encode-hooks
+$ yarn add common-hooks
 ```
 
 ## 🔨 使用
@@ -30,5 +30,5 @@ $ yarn add encode-hooks
 参考 `Hooks`内容，使用如下：
 
 ```ts
-import { useToggle } from 'encode-hooks';
+import { useToggle } from 'common-hooks';
 ```

@@ -21,6 +21,9 @@ function useToggle(defaultValue, reverseValue) {
     var setRight = function () {
       return setState(reverseValueOrigin);
     };
+    var set = function (value) {
+      return setState(value);
+    };
     var toggle = function () {
       return setState(function (s) {
         return s === defaultValue ? reverseValueOrigin : defaultValue;
@@ -29,6 +32,7 @@ function useToggle(defaultValue, reverseValue) {
     return {
       setLeft: setLeft,
       setRight: setRight,
+      set: set,
       toggle: toggle
     };
   }, []);

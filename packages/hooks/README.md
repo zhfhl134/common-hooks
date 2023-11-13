@@ -1,4 +1,4 @@
-# encode hooks
+# common hooks
 
 ## 安装 webpack 打包工具
 
@@ -179,14 +179,14 @@
 
 ```json
 {
-  "name": "encode-hooks",
+  "name": "common-hooks",
   "version": "0.0.1",
   "description": "React 业务 Hooks",
   "keywords": ["encode", "react", "hooks"],
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
-  "unpkg": "dist/encode-hooks.js",
+  "unpkg": "dist/common-hooks.js",
   "sideEffects": false,
   "authors": "zhfhl",
   "publishConfig": {
@@ -263,8 +263,15 @@
     16.2 根目录下新建 jest.setup.js 文件 // 默认值的方法创建
     16.3 src/useToggle 目录下新建 **test** 文件夹 文件夹下新建 index.test.ts 配置 test
 17. 发布包到 npm 发布代码到 github
-    根目录 package.json 文件中添加 scripts 命令 :
+    17.1 根目录 package.json 文件中添加 scripts 命令 :
     "pub:beta": "pnpm run build && pnpm -r --filter=./packages/hooks publish --tag beta",
-    运行 pnpm run pub:beta 命令 进行发包到 npm
+    17.2 运行 pnpm run pub:beta 命令 进行发包到 npm
     完善 npm 信息将 md 文件拷贝到项目跟目录下 gulpfile.js 文件中
     package/hooks/gulpfile.js 文件中添加一个 hooks 的文档声明 metadata.json
+    17.3 重新发布 npm 包 需要修改 package.json 文件中的 version 版本号（子包）
+    17.4 发布到 github 通过 git action 发布
+    根目录添加 .github/workflows/deploy.yml、test.yml 文件 分别对应测试运行、静态站点运行
+18. unpkg
+    能够通过编写一个新的 npm 包，发布一个空的 npm 包，空的 npm 包里面包含有 build:doc 之后的产物，dist cdn->github.io
+    18.1 github.io
+    18.2 unpkg

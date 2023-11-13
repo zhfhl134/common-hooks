@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType, dynamic } from 'D:/react-hooks-demo/node_modules/.pnpm/@umijs+runtime@3.5.41_react@16.14.0/node_modules/@umijs/runtime';
+import { ApplyPluginsType, dynamic } from 'D:/common-hooks/node_modules/.pnpm/@umijs+runtime@3.5.41_react@16.14.0/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 
@@ -13,7 +13,7 @@ export function getRoutes() {
     "component": ((props) => dynamic({
           loader: async () => {
             const React = await import('react');
-            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ 'D:/react-hooks-demo/node_modules/.pnpm/@umijs+preset-dumi@1.1.54_react-dom@18.2.0_react-router@6.17.0_react@18.2.0_typescript@5.2.2_umi@3.5.41/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
+            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ 'D:/common-hooks/node_modules/.pnpm/@umijs+preset-dumi@1.1.54_react-dom@18.2.0_react-router@6.17.0_react@18.2.0_typescript@5.2.2_umi@3.5.41/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
             const { default: Previewer } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi-theme-default/es/builtins/Previewer.js');
             const { usePrefersColor, context } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi/theme');
 
@@ -60,19 +60,19 @@ export function getRoutes() {
     "__dumiRoot": true,
     "layout": false,
     "path": "/",
-    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/react-hooks-demo/node_modules/.pnpm/dumi-theme-default@1.1.24_@umijs+preset-dumi@1.1.54_react-dom@18.2.0_react@18.2.0/node_modules/dumi-theme-default/es/layout.js')})],
+    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/common-hooks/node_modules/.pnpm/dumi-theme-default@1.1.24_@umijs+preset-dumi@1.1.54_react-dom@18.2.0_react@18.2.0/node_modules/dumi-theme-default/es/layout.js')})],
     "routes": [
       {
         "path": "/",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__index.md' */'D:/react-hooks-demo/docs/index.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__index.md' */'D:/common-hooks/docs/index.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1699172609115,
+          "updatedTime": 1699596956000,
           "title": "首页",
           "hero": {
-            "image": "/encode-hooks/short-logo.png",
-            "desc": "<div class=\"markdown\"><p>印客学院 React 业务 Hooks</p></div>",
+            "image": "/common-hooks/logo.jpg",
+            "desc": "<div class=\"markdown\"><p>常见 React 业务 Hooks</p></div>",
             "actions": [
               {
                 "text": "指南",
@@ -84,7 +84,7 @@ export function getRoutes() {
               }
             ]
           },
-          "footer": "<div class=\"markdown\"><p>Copyright (c) © 2023 by encode studio, All Rights Reserved</p></div>",
+          "footer": "<div class=\"markdown\"><p>Copyright (c) © 2023 by zhfhl134 blog, All Rights Reserved</p></div>",
           "slugs": [
             {
               "depth": 2,
@@ -103,20 +103,20 @@ export function getRoutes() {
             }
           ]
         },
-        "title": "首页 - encode hooks"
+        "title": "首页 - common-hooks"
       },
       {
         "path": "/guide",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__guide__index.md' */'D:/react-hooks-demo/docs/guide/index.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__guide__index.md' */'D:/common-hooks/docs/guide/index.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/guide/index.md",
-          "updatedTime": 1699181024393,
+          "updatedTime": 1699596956000,
           "slugs": [
             {
               "depth": 1,
-              "value": "encode-hooks",
-              "heading": "encode-hooks"
+              "value": "common-hooks",
+              "heading": "common-hooks"
             },
             {
               "depth": 2,
@@ -184,21 +184,153 @@ export function getRoutes() {
               "heading": "-联系"
             }
           ],
-          "title": "encode-hooks",
+          "title": "common-hooks",
           "nav": {
             "path": "/guide",
             "title": "Guide"
           }
         },
-        "title": "encode-hooks - encode hooks"
+        "title": "common-hooks - common-hooks"
+      },
+      {
+        "path": "/hooks/use-boolean",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useBoolean__index.md' */'D:/common-hooks/packages/hooks/src/useBoolean/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "packages/hooks/src/useBoolean/index.md",
+          "updatedTime": 1699687383121,
+          "componentName": "useBoolean",
+          "nav": {
+            "path": "/hooks",
+            "title": "UseBoolean"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "useBoolean",
+              "heading": "useboolean"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基础用法",
+              "heading": "基础用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "Params",
+              "heading": "params"
+            },
+            {
+              "depth": 3,
+              "value": "Result",
+              "heading": "result"
+            },
+            {
+              "depth": 3,
+              "value": "Actions",
+              "heading": "actions"
+            }
+          ],
+          "title": "useBoolean",
+          "hasPreviewer": true,
+          "group": {
+            "path": "/hooks/use-boolean",
+            "title": "UseBoolean"
+          }
+        },
+        "title": "useBoolean - common-hooks"
+      },
+      {
+        "path": "/hooks/use-latest",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useLatest__index.md' */'D:/common-hooks/packages/hooks/src/useLatest/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "packages/hooks/src/useLatest/index.md",
+          "updatedTime": 1699767516058,
+          "nav": {
+            "path": "/hooks",
+            "title": "UseLatest"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "useLatest",
+              "heading": "uselatest"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 4,
+              "value": "默认值为空",
+              "heading": "默认值为空"
+            }
+          ],
+          "title": "useLatest",
+          "hasPreviewer": true,
+          "group": {
+            "path": "/hooks/use-latest",
+            "title": "UseLatest"
+          }
+        },
+        "title": "useLatest - common-hooks"
+      },
+      {
+        "path": "/hooks/use-title",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useTitle__index.md' */'D:/common-hooks/packages/hooks/src/useTitle/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "packages/hooks/src/useTitle/index.md",
+          "updatedTime": 1699763656094,
+          "nav": {
+            "path": "/hooks",
+            "title": "UseTitle"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "useTitle",
+              "heading": "usetitle"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基础用法",
+              "heading": "基础用法"
+            }
+          ],
+          "title": "useTitle",
+          "hasPreviewer": true,
+          "group": {
+            "path": "/hooks/use-title",
+            "title": "UseTitle"
+          }
+        },
+        "title": "useTitle - common-hooks"
       },
       {
         "path": "/hooks/use-toggle",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useToggle__index.md' */'D:/react-hooks-demo/packages/hooks/src/useToggle/index.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useToggle__index.md' */'D:/common-hooks/packages/hooks/src/useToggle/index.md')}),
         "exact": true,
         "meta": {
           "filePath": "packages/hooks/src/useToggle/index.md",
-          "updatedTime": 1699578737195,
+          "updatedTime": 1699596956000,
           "nav": {
             "path": "/hooks",
             "title": "UseToggle"
@@ -232,7 +364,7 @@ export function getRoutes() {
             "title": "UseToggle"
           }
         },
-        "title": "useToggle - encode hooks"
+        "title": "useToggle - common-hooks"
       },
       {
         "path": "/hooks",
@@ -241,7 +373,7 @@ export function getRoutes() {
         "redirect": "/hooks/use-toggle"
       }
     ],
-    "title": "encode hooks",
+    "title": "common-hooks",
     "component": (props) => props.children
   }
 ];

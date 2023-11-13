@@ -8,6 +8,7 @@ export interface Actions<T> {
   setLeft: defaultFn;
   setRight: defaultFn;
   toggle: defaultFn;
+  set: (value: T) => void;
 }
 
 //1. 支持默认的 boolean 类型切换
@@ -18,7 +19,7 @@ function useToggle<T = boolean>(): [boolean, Actions<T>];
 
 // 1.1.1 默认传值不为空 类型定义
 function useToggle<D, R>(defaultValue: D, reverseValue: R): [D | R, Actions<D | R>];
-
+function useToggle<T>(defaultValue: T): [T, Actions<T>];
 // 1.2 定义方法
 function useToggle<D, R>(defaultValue: D = false as D, reverseValue?: R) {
   // 当前状态
@@ -28,10 +29,12 @@ function useToggle<D, R>(defaultValue: D = false as D, reverseValue?: R) {
     const reverseValueOrigin = reverseValue === undefined ? !defaultValue : (reverseValue as D | R);
     const setLeft = () => setState(defaultValue);
     const setRight = () => setState(reverseValueOrigin);
+    const set = (value: D | R) => setState(value);
     const toggle = () => setState((s) => (s === defaultValue ? reverseValueOrigin : defaultValue));
     return {
       setLeft,
       setRight,
+      set,
       toggle,
     };
   }, []);

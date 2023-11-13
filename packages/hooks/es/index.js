@@ -1,2 +1,5 @@
 import useToggle from './useToggle';
-export { useToggle };
+import useBoolean from './useBoolean';
+import useTitle from './useTitle';
+import useLatest from './useLatest';
+export { useToggle, useBoolean, useTitle, useLatest };
