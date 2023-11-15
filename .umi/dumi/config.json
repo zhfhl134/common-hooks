@@ -16,6 +16,56 @@
       ],
       "/hooks": [
         {
+          "title": "请求",
+          "children": [
+            {
+              "path": "/hooks/use-request/basic",
+              "title": "基础用法"
+            },
+            {
+              "path": "/hooks/use-request/loading-delay",
+              "title": "Loading Delay"
+            },
+            {
+              "path": "/hooks/use-request/polling",
+              "title": "轮询"
+            },
+            {
+              "path": "/hooks/use-request/ready",
+              "title": "Ready"
+            },
+            {
+              "path": "/hooks/use-request/refresy-deps",
+              "title": "依赖刷新"
+            },
+            {
+              "path": "/hooks/use-request/refresh-on-window-focus",
+              "title": "屏幕聚焦重新请求"
+            },
+            {
+              "path": "/hooks/use-request/debounce",
+              "title": "防抖"
+            },
+            {
+              "path": "/hooks/use-request/throttle",
+              "title": "节流"
+            },
+            {
+              "path": "/hooks/use-request/retry",
+              "title": "错误重试"
+            }
+          ]
+        },
+        {
+          "title": "生命周期",
+          "children": [
+            {
+              "path": "/hooks/use-unmount",
+              "title": "useUnmount"
+            }
+          ]
+        },
+        {
           "title": "状态",
           "children": [
             {
@@ -27,8 +77,12 @@
               "title": "useBoolean"
             },
             {
-              "path": "/hooks/use-latest",
-              "title": "useLatest"
+              "path": "/hooks/use-debounce",
+              "title": "useDebounce"
+            },
+            {
+              "path": "/hooks/use-throttle",
+              "title": "useThrottle"
             }
           ]
         },
@@ -38,6 +92,28 @@
             {
               "path": "/hooks/use-title",
               "title": "useTitle"
+            }
+          ]
+        },
+        {
+          "title": "进阶",
+          "children": [
+            {
+              "path": "/hooks/use-latest",
+              "title": "useLatest"
+            },
+            {
+              "path": "/hooks/use-memoized-fn",
+              "title": "useMemoizedFn"
+            }
+          ]
+        },
+        {
+          "title": "Effect",
+          "children": [
+            {
+              "path": "/hooks/use-debounce-fn",
+              "title": "useDebounceFn"
             }
           ]
         }
@@ -68,7 +144,7 @@
       },
       {
         "title": "GitHub",
-        "path": "https://github.com/zhfhl134/commin-hooks"
+        "path": "https://github.com/zhfhl134/common-hooks"
       }
     ]
   },

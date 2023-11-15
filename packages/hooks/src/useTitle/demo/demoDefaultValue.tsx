@@ -1,9 +1,17 @@
+/**
+ * title: 基础用法
+ * desc: 设置页面标题
+ */
+
 import React from 'react';
-import { useTitle } from 'commonHooks';
+import { useTitle } from 'common-hooks';
 
-const useTitleDemo = () => {
-  useTitle('自定义的标题');
-  return <div>能够修改的标题</div>;
+export default () => {
+  useTitle('Page Title');
+
+  return (
+    <div>
+      <p>设置页面标题.</p>
+    </div>
+  );
 };
-
-export default useTitleDemo;

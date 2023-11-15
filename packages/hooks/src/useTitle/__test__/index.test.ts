@@ -1,29 +1,40 @@
-import { renderHook, act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 import useTitle from '../index';
 
 describe('useTitle', () => {
-  it('基础标题的测试使用', () => {
-    const hook = renderHook((props) => useTitle(props), {
-      initialProps: '自定义页面标题',
-    });
-    expect(document.title).toBe('自定义页面标题');
+  it('should update document title', () => {
+    const hook = renderHook((props) => useTitle(props), { initialProps: 'Current Page Title' });
 
+    expect(document.title).toBe('Current Page Title');
     act(() => {
-      hook.rerender('另一个自定义页面标题');
+      hook.rerender('Other Page Title');
     });
-    expect(document.title).toBe('另一个自定义页面标题');
+    expect(document.title).toBe('Other Page Title');
   });
 
-  it('组件关闭回退', () => {
-    document.title = '原有页面标题';
-    const hook = renderHook((props) => useTitle(props, { restorePrevTitle: false }), {
-      initialProps: '自定义页面标题',
-    });
-    expect(document.title).toBe('自定义页面标题');
+  it('should restore document title on unmount', () => {
+    document.title = 'Old Title';
 
-    act(() => {
-      hook.unmount();
+    const hook = renderHook((props) => useTitle(props, { restoreOnUnmount: true }), {
+      initialProps: 'Current Page Title',
     });
-    expect(document.title).toBe('自定义页面标题');
+
+    expect(document.title).toBe('Current Page Title');
+
+    hook.unmount();
+    expect(document.title).toBe('Old Title');
+  });
+
+  it('should not restore document title on unmount', () => {
+    document.title = 'Old Title';
+
+    const hook = renderHook((props) => useTitle(props, { restoreOnUnmount: false }), {
+      initialProps: 'Current Page Title',
+    });
+
+    expect(document.title).toBe('Current Page Title');
+
+    hook.unmount();
+    expect(document.title).toBe('Current Page Title');
   });
 });

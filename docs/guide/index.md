@@ -20,7 +20,7 @@
 
 在前端项目开发中，我们通常有着各种各样可以复用的业务场景，需要将重复的代码量转为可复用的开发工具，隐藏业务逻辑，提升开发效率。
 
-我通过以 `React` 为前端框架，`React Hooks` 作为核心产出，从 0 ～ 1 手把手搭建一个前端业务 `Hooks` 库，从产品设计、框架选择、架构设计到最终的编码落地，通过一个完整的产品实现，解决提升代码复用的问题。
+通过以 `React` 为前端框架，`React Hooks` 作为核心产出，从 0 ～ 1 搭建一个前端业务 `Hooks` 库，从产品设计、框架选择、架构设计到最终的编码落地，通过一个完整的产品实现，解决提升代码复用的问题。
 
 ## ⚒️ 技术选型
 
@@ -55,10 +55,5 @@
 npm install -g conventional-changelog-cli
 pnpm run changelog
 ```
-
-## 📧 联系
-
-- **common Hooks** <https://zhfhl134.github.io/common-hooks/>
-- **GitHub**: <https://github.com/zhfhl134/common-hooks>
 
 </br>

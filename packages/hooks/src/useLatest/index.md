@@ -5,10 +5,16 @@ nav:
 
 # useLatest
 
-用于获取最新的 hooks 避免闭包
+返回当前最新值的 Hook，可以避免闭包问题。
 
 ## 代码演示
 
-#### 默认值为空
+### 基础用法
 
-<code src="./demo/demoDefaultValue.tsx">
+<code hideActions='["CSB"]' src="./demo/demo.tsx" />
+
+## API
+
+```typescript
+const latestValueRef = useLatest<T>(value: T): MutableRefObject<T>;
+```

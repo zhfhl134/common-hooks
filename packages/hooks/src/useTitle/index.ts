@@ -1,31 +1,26 @@
 import { useRef, useEffect } from 'react';
+import useUnmount from '../useUnmount';
+import isBrowser from '../utils/isBrowser';
 
-type FN = () => void;
+export interface Options {
+  restoreOnUnmount?: boolean;
+}
 
-const DEFAULT_OPTIONS = {
-  restorePrevTitle: false,
+const DEFAULT_OPTIONS: Options = {
+  restoreOnUnmount: false,
 };
-// 解决闭包的问题
-const useLatest = <T>(value: T) => {
-  const ref = useRef<T>(value);
-  ref.current = value;
-  return ref;
-};
-const useUnmount = (fn: FN) => {
-  const fnRef = useLatest(fn);
-  useEffect(() => () => fnRef.current(), []);
-};
-const useTitle = (title: string, option = DEFAULT_OPTIONS) => {
-  const titleRef = useRef(document.title);
 
+function useTitle(title: string, options: Options = DEFAULT_OPTIONS) {
+  const titleRef = useRef(isBrowser ? document.title : '');
   useEffect(() => {
     document.title = title;
   }, [title]);
+
   useUnmount(() => {
-    if (option.restorePrevTitle) {
+    if (options.restoreOnUnmount) {
       document.title = titleRef.current;
     }
   });
-};
+}
 
 export default useTitle;

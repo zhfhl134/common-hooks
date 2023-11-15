@@ -1,277 +1,59 @@
-# common hooks
+# common-hooks
 
-## 安装 webpack 打包工具
+常用 React 业务 Hooks
 
-### 初始化 package.json 文件
+## ⛰️ 能力支持
 
-    ```js
-    npm init -y
-    ```
+### 1. 可靠的代码健壮
 
-1. package.json 依赖项修改
-   1.1 version 字段不需要添加，发包的时候需要设置版本号
+使用 Typescript 构建，提供完善的类型定义文件
 
-   ```js
-   "version": "x.x.x"   ->   "private": "true"
-   ```
+### 2. 完善的文档能力
 
-   main 字段不需要添加，打包的时候需要设置文件位置
+支持文档记录，支持 demo 演示
 
-   ```js
-   "main": "xx/xx.js"   ->   // 删除
-   ```
+### 3. 完整的测试用例
 
-   1.2 scripts 对象中添加值：
+配套完整的测试用例，帮助您提升项目健壮性
 
-   ```js
-   "preinstall":"npx only-allow pnpm", // 安装依赖时，使用 pnpm
-   "prepare":"husky install"，         // 安装 husky 代码提交之前，自动对代码进行格式化、优化、自定义。
-   "start": "pnpm run dev",            // 启动项设置 dev 启动
-   "dev": "dumi dev",                  // 启动 dumi 本地开发环境
-    "init": "pnpm install",            // 依赖安装配置项
-    "build": "pnpm -r --filter=./packages/* run build", // 配置子包启动项
-   ```
+## 🌟 设计目的
 
-   1.3 安装依赖项 devDependencies 对象中添加。
+在前端项目开发中，我们通常有着各种各样可以复用的业务场景，需要将重复的代码量转为可复用的开发工具，隐藏业务逻辑，提升开发效率。
 
-   ```json
-    "@ant-design/icons": "^5.0.1",
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-transform-runtime": "^7.19.6",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@types/jest": "^29.4.0",
-    "@types/mockjs": "^1.0.7",
-    "@types/node": "^20.5.6",
-    "@types/react-router": "^5.1.19",
-    "@umijs/fabric": "^2.1.0",
-    "antd": "^5.2.1",
-    "babel-plugin-import": "^1.12.0",
-    "coveralls": "^3.1.1",
-    "cross-env": "^7.0.3",
-    "del": "^5.1.0",
-    "dumi": "^1.1.48",
-    "encode-fe-lint": "^1.0.3",
-    "eslint": "^7.2.0",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "fast-glob": "^3.2.11",
-    "fs-extra": "^10.0.1",
-    "gray-matter": "^4.0.3",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^8.0.0",
-    "jest": "^29.4.1",
-    "jest-environment-jsdom": "^29.4.1",
-    "jest-localstorage-mock": "^2.4.18",
-    "mockjs": "^1.1.0",
-    "prettier": "^2.0.5",
-    "pretty-quick": "^3.1.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-drag-listview": "^0.1.6",
-    "react-router": "^6.4.2",
-    "react-shadow": "^19.0.3",
-    "rimraf": "^3.0.2",
-    "surge": "^0.21.3",
-    "ts-jest": "^29.0.5",
-    "tslib": "^2.4.1",
-    "typescript": "^5.1.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.2"
-   ```
+通过以 `React` 为前端框架，`React Hooks` 作为核心产出，从 0 ～ 1 搭建一个前端业务 `Hooks` 库，从产品设计、框架选择、架构设计到最终的编码落地，通过一个完整的产品实现，解决提升代码复用的问题。
 
-2. 安装脚手架工具
+## ⚒️ 技术选型
 
-   ```js
-   encode-fe-lint init
-       React 项目 (TypeScript)
-       stylelint
-       Prettier // 代码格式化
-   ```
+### 包管理工具 -- pnpm
 
-3. 安装依赖
+作为基础包，选择社区内更推崇的`pnpm`作为包管理工具，主要原因有：
 
-   ```js
-   pnpm run init
-   ```
+1. `pnpm`安装速度更快，磁盘空间利用率高；
+2. `pnpm`的`lock`文件适用于多个单一子功能的模块，且能保证每个模块的依赖不耦合；
+3. 打包产物清晰，打包后产物确保全部为静态站点资源；
 
-4. 多包管理配置
-   4.1 新建 pnpm-workspace.yaml 文件
-   多包管理配置
+### 构建工具 -- webpack & gulp
 
-   ```yaml
-   packages:
-     - 'packages/*'
-   ```
+1. 最终产物为多个基础子功能模块的耦合，选择`gulp`这种流程式的构建工具，能够更清晰的表达构建流程；
+2. 选择常用的`webpack`作为构建产物的声明式接入方式；
 
-   4.2 新建 packages/hooks 文件
+### 静态文件打包工具 -- dumi
 
-5. 安装静态站点
-   根据 webpack 打包工具，安装对应的依赖（dumi）
-   ```js
-   pnpm run start
-   ```
-6. 配置 TS 文件
+就目前前端社区而言，`dumi`是当之无愧的为组件研发而生的静态站点解决方案；
 
-   ```js
-   tsc --init
-   ```
+### 测试工具 -- jest
 
-   6.1. 对应子包的 TS 配置
-   tsconfig.pro.json
+`jest`功能全面，资料丰富，能够很好地支撑原子化集合的工具函数；
 
-   ```json
-   {
-     "extends": "./tsconfig.json", //基于上层 TS 做扩展
-     "exclude": [
-       "node_modules",
-       "lib",
-       "es",
-       "dist",
-       "**/__tests__",
-       "**/__test__",
-       "**/demo",
-       "example",
-       "gulpfile.js"
-     ]
-   }
-   ```
+## 其他
 
-7. 配置 webpack 构建工具
-   根目录下新建 webpack.common.js
-   ```js
-   module.exports = {
-     output: {
-       libraryTarget: 'umd',
-       globalObject: 'this',
-     },
-     mode: 'production',
-     resolve: {
-       extensions: ['.json', '.js'],
-     },
-     // module: {
-     //   rules: [
-     //     {
-     //       test: /\.jsx?$/,
-     //       use: {
-     //         loader: 'babel-loader',
-     //       },
-     //     }
-     //   ],
-     // },
-     externals: [
-       {
-         react: 'React',
-       },
-     ],
-   };
-   ```
-8. 配置 dumi 工具
-   新建 config 文件夹-新建 config.ts、menus.ts // 静态页面可以展示的内容,根据 dumi 官方文档配置
-9. 新建 docs 文件夹，静态站点所消费的内容
-10. 配置子包的 package.json 文件
+### 生成`CHANGELOG`
 
-```json
-{
-  "name": "common-hooks",
-  "version": "0.0.1",
-  "description": "React 业务 Hooks",
-  "keywords": ["encode", "react", "hooks"],
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "types": "./lib/index.d.ts",
-  "unpkg": "dist/common-hooks.js",
-  "sideEffects": false,
-  "authors": "zhfhl",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "repository": "https://github.com/encode-studio-fe/encode-hooks",
-  "homepage": "https://github.com/encode-studio-fe/encode-hooks",
-  "scripts": {
-    "build": "webpack-cli"
-  },
-  "files": ["dist", "lib", "es", "metadata.json", "package.json", "README.md"],
-  "dependencies": {
-    "@babel/runtime": "^7.21.0",
-    "dayjs": "^1.9.1",
-    "intersection-observer": "^0.12.0",
-    "js-cookie": "^2.x.x",
-    "lodash-es": "^4.17.21",
-    "resize-observer-polyfill": "^1.5.1",
-    "screenfull": "^5.0.0",
-    "tslib": "^2.4.1"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
-  "devDependencies": {
-    "@alifd/next": "^1.20.6",
-    "@ant-design/icons": "^5.0.1",
-    "@types/js-cookie": "^2.x.x",
-    "@types/lodash-es": "^4.17.7",
-    "antd": "^5.2.1",
-    "jest-websocket-mock": "^2.1.0",
-    "mockjs": "^1.1.0",
-    "react-drag-listview": "^0.1.6",
-    "react-json-view": "^1.21.3"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "license": "MIT"
-}
+参考[conventional-changelog-cli](https://www.npmjs.com/package/conventional-changelog-cli)，全局安装`conventional-changelog-cli`：
+
+```bash
+npm install -g conventional-changelog-cli
+pnpm run changelog
 ```
 
-11. gulp 配置文件（用来分析打包的过程）
-    全局新建 gulpfile.js
-    11.1 配置多包中的 tsconfig.json 文件
-    11.2 配置多包中的 tsconfig.pro.json 文件
-    11.4 配置多包中的 gulpfile.js 文件
-12. 安装多包依赖
-
-```JS
- pnpm run init
-```
-
-13. 构建多包打包之后文件
-    将多包中的 package.json 文件中的 scripts 命令
-    ```json
-    "scripts": {
-    "build": "gulp"
-    }
-    ```
-    ```js
-    pnpm run build
-    ```
-    cjs 配置文件 需要添加 .babelrc 配置文件
-14. 构建多包中的 webpack.config.js
-
-15. 构建 useToggle hooks
-    15.1 src 文件下新建 useToggle 文件；useToggle 文件下新建 index.ts 文件
-    15.2 useToggle 文件下新建 demo 文件，demo 文件新建 index.tsx 文件
-    15.3 useToggle 文件下新建 index.md 文件配置 demo 文件路由
-16. 健壮性(测试用例测试 功能校验 jest)
-    https://jestjs.io/zh-Hans/
-    16.1 根目录下新建 jest.config.js 文件 // 针对浏览器环境下配置的基础 jest 内容
-    16.2 根目录下新建 jest.setup.js 文件 // 默认值的方法创建
-    16.3 src/useToggle 目录下新建 **test** 文件夹 文件夹下新建 index.test.ts 配置 test
-17. 发布包到 npm 发布代码到 github
-    17.1 根目录 package.json 文件中添加 scripts 命令 :
-    "pub:beta": "pnpm run build && pnpm -r --filter=./packages/hooks publish --tag beta",
-    17.2 运行 pnpm run pub:beta 命令 进行发包到 npm
-    完善 npm 信息将 md 文件拷贝到项目跟目录下 gulpfile.js 文件中
-    package/hooks/gulpfile.js 文件中添加一个 hooks 的文档声明 metadata.json
-    17.3 重新发布 npm 包 需要修改 package.json 文件中的 version 版本号（子包）
-    17.4 发布到 github 通过 git action 发布
-    根目录添加 .github/workflows/deploy.yml、test.yml 文件 分别对应测试运行、静态站点运行
-18. unpkg
-    能够通过编写一个新的 npm 包，发布一个空的 npm 包，空的 npm 包里面包含有 build:doc 之后的产物，dist cdn->github.io
-    18.1 github.io
-    18.2 unpkg
+</br>

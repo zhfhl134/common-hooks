@@ -1,39 +1,28 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
 var _react = require("react");
+var _useUnmount = _interopRequireDefault(require("../useUnmount"));
+var _isBrowser = _interopRequireDefault(require("../utils/isBrowser"));
 var DEFAULT_OPTIONS = {
-  restorePrevTitle: false
+  restoreOnUnmount: false
 };
-// 解决闭包的问题
-var useLatest = function useLatest(value) {
-  var ref = (0, _react.useRef)(value);
-  ref.current = value;
-  return ref;
-};
-var useUnmount = function useUnmount(fn) {
-  var fnRef = useLatest(fn);
-  (0, _react.useEffect)(function () {
-    return function () {
-      return fnRef.current();
-    };
-  }, []);
-};
-var useTitle = function useTitle(title, option) {
-  if (option === void 0) {
-    option = DEFAULT_OPTIONS;
+function useTitle(title, options) {
+  if (options === void 0) {
+    options = DEFAULT_OPTIONS;
   }
-  var titleRef = (0, _react.useRef)(document.title);
+  var titleRef = (0, _react.useRef)(_isBrowser["default"] ? document.title : '');
   (0, _react.useEffect)(function () {
     document.title = title;
   }, [title]);
-  useUnmount(function () {
-    if (option.restorePrevTitle) {
+  (0, _useUnmount["default"])(function () {
+    if (options.restoreOnUnmount) {
       document.title = titleRef.current;
     }
   });
-};
+}
 var _default = exports["default"] = useTitle;

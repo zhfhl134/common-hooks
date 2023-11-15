@@ -7,10 +7,11 @@ import React from 'react';
 import { useBoolean } from 'commonHooks';
 
 const useToggleDemo = () => {
-  const [state, { toggle, setTrue, setFalse }] = useBoolean(false);
+  const [state, { toggle, setTrue, setFalse }] = useBoolean(true);
+
   return (
     <div>
-      <p>默认值为: {`${state}`}</p>
+      <p>默认值为: {JSON.stringify(state)}</p>
       <button onClick={toggle} type="button">
         toggle 切换
       </button>
