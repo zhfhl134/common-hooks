@@ -62,6 +62,10 @@
             {
               "path": "/hooks/use-unmount",
               "title": "useUnmount"
+            },
+            {
+              "path": "/hooks/use-update",
+              "title": "useUpdate"
             }
           ]
         },
@@ -144,7 +148,7 @@
       },
       {
         "title": "GitHub",
-        "path": "https://github.com/zhfhl134/common-hooks"
+        "path": "https://github.com"
       }
     ]
   },

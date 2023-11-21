@@ -15,7 +15,7 @@ export const menus = [
   },
   {
     title: '生命周期',
-    children: ['useUnmount'],
+    children: ['useUnmount', 'useUpdate'],
   },
   {
     title: '状态',
